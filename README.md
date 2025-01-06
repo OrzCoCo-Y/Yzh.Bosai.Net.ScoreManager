@@ -1,0 +1,1 @@
+# Yzh.Bosai.Net.ScoreManager
