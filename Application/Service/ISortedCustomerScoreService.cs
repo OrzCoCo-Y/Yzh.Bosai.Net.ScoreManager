@@ -21,5 +21,14 @@ namespace Yzh.Bosai.Net.ScoreManager.Application.Service
         /// <param name="end"></param>
         /// <returns></returns>
         IEnumerable<CustomerScoreRankResponse> GetCustomersByRank(int start, int end);
+
+        /// <summary>
+        /// 获取指定用户的上下邻居
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <param name="high"></param>
+        /// <param name="low"></param>
+        /// <returns></returns>
+        List<CustomerScoreRankResponse> GetCustomerRankWithNeighbors(long customerId, int high, int low);
     }
 }

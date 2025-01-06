@@ -54,11 +54,26 @@ namespace Yzh.Bosai.Net.ScoreManager.Infrastructure.Services
         }
 
 #endif
+
+        /// <summary>
+        /// 尝试添加用户积分
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <param name="customerScore"></param>
+        /// <returns></returns>
         public bool TryAdd(long customerId, CustomerScore customerScore)
         {
             return _scores.TryAdd(customerId, customerScore);
         }
 
+
+        /// <summary>
+        /// 尝试更新用户积分
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <param name="scoreChange"></param>
+        /// <param name="existing"></param>
+        /// <returns></returns>
         public bool TryUpdate(long customerId, double scoreChange, out CustomerScore existing)
         {
             if (_scores.TryGetValue(customerId, out var current))
@@ -74,11 +89,23 @@ namespace Yzh.Bosai.Net.ScoreManager.Infrastructure.Services
             }
         }
 
+        /// <summary>
+        /// 尝试移除用户积分
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <param name="customerScore"></param>
+        /// <returns></returns>
         public bool TryRemove(long customerId, out CustomerScore customerScore)
         {
             return _scores.TryRemove(customerId, out customerScore);
         }
 
+        /// <summary>
+        /// 尝试获取用户积分
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <param name="customerScore"></param>
+        /// <returns></returns>
         public bool TryGetValue(long customerId, out CustomerScore customerScore)
         {
             return _scores.TryGetValue(customerId, out customerScore);

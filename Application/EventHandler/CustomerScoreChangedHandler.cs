@@ -31,17 +31,17 @@ namespace Yzh.Bosai.Net.ScoreManager.Application.EventHandler
             {
                 Console.WriteLine($"Handling event: Customer ID: {@event.CustomerId}, current Score: {@event.Score}");
 
-                // 调用 ScoreManagerCoreService 来更新排序集合
+                // 更新排序集合
                 _scoreManager.UpdateSortedScores(@event.CustomerId, @event.Score);
 
-                // 这里可以添加其他逻辑，例如更新数据库、发送通知等。
+                // 这里可以添加其他逻辑，例如发送通知
 
-                await Task.CompletedTask; // 如果没有异步操作，使用这个来满足接口要求
+                await Task.CompletedTask;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Failed to update sorted scores: {ex.Message}");
-                throw; // 或者根据需要选择不抛出异常
+                throw;
             }
         }
     }

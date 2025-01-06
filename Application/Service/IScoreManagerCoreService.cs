@@ -16,7 +16,7 @@ namespace Yzh.Bosai.Net.ScoreManager.Application.Service
         Task UpdateScore(long customerId, double score);
 
         /// <summary>
-        /// 获取指定用户的排名
+        /// 获取指定用户的分数
         /// get the rank of a specific customer
         /// </summary>
         /// <param name="customerId">用户名</param>

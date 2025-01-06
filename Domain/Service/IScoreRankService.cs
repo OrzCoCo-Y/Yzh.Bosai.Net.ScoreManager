@@ -7,7 +7,6 @@ namespace Yzh.Bosai.Net.ScoreManager.Domain.Service
     /// </summary>
     public interface IScoreRankService
     {
-
         /// <summary>
         /// 更新或添加用户积分排名
         /// </summary>
@@ -28,5 +27,12 @@ namespace Yzh.Bosai.Net.ScoreManager.Domain.Service
         /// <param name="end"></param>
         /// <returns></returns>
         IEnumerable<CustomerScore> GetRange(int start, int end);
+
+        /// <summary>
+        /// 根据用户Id获取用户排名
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
+        (int rank, string message) GetRankAByCustomerId(long customerId);
     }
 }

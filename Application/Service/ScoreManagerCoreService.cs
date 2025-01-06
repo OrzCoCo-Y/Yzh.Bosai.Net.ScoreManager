@@ -10,19 +10,24 @@ namespace Yzh.Bosai.Net.ScoreManager.Application.Service
     /// </summary>
     public class ScoreManagerCoreService : IScoreManagerCoreService
     {
+        /// <summary>
+        /// 积分服务
+        /// </summary>
         private readonly ICustomerScoreService _scores;
-        private readonly IScoreRankService _sortedScores;
-        private readonly IEventBus _eventBus;
 
+        /// <summary>
+        /// 事件总线
+        /// </summary>
+        private readonly IEventBus _eventBus;
 
         /// <summary>
         /// 构造函数注入
         /// </summary>
         /// <param name="eventBus"></param>
-        public ScoreManagerCoreService(IEventBus eventBus, IScoreRankService sortedCustomerScores, ICustomerScoreService customerScores)
+        /// <param name="customerScores"></param>
+        public ScoreManagerCoreService(IEventBus eventBus, ICustomerScoreService customerScores)
         {
             _eventBus = eventBus;
-            _sortedScores = sortedCustomerScores;
             _scores = customerScores;
         }
 
@@ -37,8 +42,6 @@ namespace Yzh.Bosai.Net.ScoreManager.Application.Service
         {
             if (_scores.TryGetValue(customerId, out var customer))
             {
-                // Implement neighbor retrieval logic here.
-                // This is left as an exercise due to complexity and optimization considerations.
                 return customer;
             }
 

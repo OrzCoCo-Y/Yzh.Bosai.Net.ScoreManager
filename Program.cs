@@ -13,6 +13,9 @@ namespace Yzh.Bosai.Net.ScoreManager
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // 添加日志记录服务
+            builder.Logging.AddConsole();
+
             // 注册服务
             ServiceRegistrations.RegisterServices(builder.Services);
 

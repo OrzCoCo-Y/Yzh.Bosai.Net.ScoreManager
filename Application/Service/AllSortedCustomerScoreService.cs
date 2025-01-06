@@ -7,12 +7,7 @@ namespace Yzh.Bosai.Net.ScoreManager.Application.Service
     /// </summary>
     public class AllSortedCustomerScoreService : SortedCustomerScoreService
     {
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        /// <param name="scoreRankService"></param>
-        /// <param name="customerScoreService"></param>
-        public AllSortedCustomerScoreService(IScoreRankService scoreRankService, ICustomerScoreService customerScoreService) : base(scoreRankService, customerScoreService)
+        public AllSortedCustomerScoreService(IScoreRankService scoreRankService, ICustomerScoreService customerScoreService, ILogger<SortedCustomerScoreService> logger) : base(scoreRankService, customerScoreService, logger)
         {
         }
 
