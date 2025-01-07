@@ -1,6 +1,6 @@
 # Yzh.Bosai.Net.ScoreManager
-
-Æô¶¯²½Öè
- VS - ÅäÖÃÆô¶¯ÏîÄ¿ - ¶àÏîÄ¿Æô¶¯ - Ñ¡ÔñYzh.Bosai.Net.ScoreManager.ApiºÍYzh.Bosai.Net.ScoreManager.Web 
+ä¸ªäººåšå®¢ï¼šhttps://www.cnblogs.com/OrcCoCo
+å¯åŠ¨æ­¥éª¤
+ VS - é…ç½®å¯åŠ¨é¡¹ç›® - å¤šé¡¹ç›®å¯åŠ¨ - é€‰æ‹©Yzh.Bosai.Net.ScoreManager.Apiå’ŒYzh.Bosai.Net.ScoreManager.Web 
 
 ![alt text](image.png)
