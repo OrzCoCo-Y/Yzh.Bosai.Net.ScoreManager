@@ -1,4 +1,6 @@
-﻿using Yzh.Bosai.Net.ScoreManager.Application.Dto;
+﻿using Microsoft.AspNetCore.SignalR;
+using Yzh.Bosai.Net.ScoreManager.Api.Application.SignalR;
+using Yzh.Bosai.Net.ScoreManager.Application.Dto;
 using Yzh.Bosai.Net.ScoreManager.Application.Event;
 using Yzh.Bosai.Net.ScoreManager.Application.Service;
 
@@ -10,14 +12,15 @@ namespace Yzh.Bosai.Net.ScoreManager.Application.EventHandler
     public class CustomerScoreChangedHandler : IEventHandler<CustomerScoreChangedDto>
     {
         private readonly ISortedCustomerScoreService _scoreManager;
-
+        private readonly IHubContext<ScoreRankHub> _hubContext;
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="scoreManager"></param>
-        public CustomerScoreChangedHandler(ISortedCustomerScoreService scoreManager)
+        public CustomerScoreChangedHandler(ISortedCustomerScoreService scoreManager, IHubContext<ScoreRankHub> hubContext)
         {
             _scoreManager = scoreManager;
+            _hubContext = hubContext;
         }
 
         /// <summary>
@@ -35,6 +38,15 @@ namespace Yzh.Bosai.Net.ScoreManager.Application.EventHandler
                 _scoreManager.UpdateSortedScores(@event.CustomerId, @event.Score);
 
                 // 这里可以添加其他逻辑，例如发送通知
+                // 通过SignlaR发送通知
+                // 获取最新的排名信息
+                var rankInfo = _scoreManager.GetCustomersByRank(0, -1);
+
+                if (rankInfo != null)
+                {
+                    // 通过 SignalR 发送通知给所有客户端
+                    await _hubContext.Clients.All.SendAsync("ReceiveRankUpdate", rankInfo);
+                }
 
                 await Task.CompletedTask;
             }

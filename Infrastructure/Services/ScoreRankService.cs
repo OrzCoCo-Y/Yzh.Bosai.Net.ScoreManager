@@ -121,6 +121,10 @@ namespace Yzh.Bosai.Net.ScoreManager.Infrastructure.Services
             _lock.EnterReadLock();
             try
             {
+                if (end <= 0)
+                {
+                    return _rankedCustomerScores.Skip(start - 1).ToList();
+                }
                 return _rankedCustomerScores.Skip(start - 1).Take(end - start + 1).ToList();
             }
             finally
