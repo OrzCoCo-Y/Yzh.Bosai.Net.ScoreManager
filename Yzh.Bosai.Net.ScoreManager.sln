@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yzh.Bosai.Net.ScoreManager.Api", "Yzh.Bosai.Net.ScoreManager.Api.csproj", "{3F66F79C-118E-4B93-8741-6A35A4700B66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yzh.Bosai.Net.ScoreManager.UI", "..\Yzh.Bosai.Net.ScoreManager.UI\Yzh.Bosai.Net.ScoreManager.UI.csproj", "{3A8D5FD8-644E-4A78-B67C-C833AEB59952}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yzh.Bosai.Net.ScoreManager.Web", "..\Yzh.Bosai.Net.ScoreManager.UI\Yzh.Bosai.Net.ScoreManager.Web.csproj", "{3A8D5FD8-644E-4A78-B67C-C833AEB59952}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
